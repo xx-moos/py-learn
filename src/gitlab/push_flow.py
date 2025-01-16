@@ -13,7 +13,9 @@ import yaml
 
 # 读取const.yaml文件
 def get_const():
-    with open('const.yaml', 'r') as file:
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    const_path = os.path.join(current_dir, 'const.yaml')
+    with open(const_path, 'r') as file:
         return yaml.safe_load(file)
 
 
@@ -27,7 +29,7 @@ def open_and_click():
     # 设置用户文件夹路径
     current_dir = os.path.dirname(os.path.abspath(__file__))
     project_root = os.path.dirname(os.path.dirname(current_dir))
-    user_data_path = os.path.join(project_root, 'user-files', 'User Data')
+    user_data_path = os.path.join(project_root, 'user-files')
     print(f"yong ->  用户数据路径: {user_data_path}")
     
     # 设置用户数据路径
@@ -47,19 +49,33 @@ def open_and_click():
         # 获取最新标签页
         page = browser.latest_tab
 
-        time.sleep(4)
+        time.sleep(6)
         
         # 打开网址
         page.get(config['openurl'])
         
-        time.sleep(3)
+        time.sleep(5)
         
         # 等待并点击元素
-        element = page.ele('h1')
-        if element:
-            element.click()
+        shortcuts_merge_requests = page.ele('tag:a@@class=shortcuts-merge_requests qa-merge-requests-link')
+        shortcuts_merge_requests.click()
+        time.sleep(3)
+
+        new_merge_request_body_link = page.ele('tag:a@@title=新建合并请求@@id^new_merge_request_body_link')
+        if new_merge_request_body_link:
+            new_merge_request_body_link.click()
+        else:
+            print("未找到元素 new_merge_request_body_link")
+            new_merge_request = page.ele('tag:a@@class=btn btn-success@@title=New merge request')
+            if new_merge_request:
+                new_merge_request.click()
         
-        return page
+
+        time.sleep(2)
+        
+
+
+
         
     except Exception as e:
         print(f"发生错误: {e}")
