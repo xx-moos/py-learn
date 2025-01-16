@@ -1,0 +1,8 @@
+openurl: 'https://git.100tal.com/panda-h5/dk-ad-system'
+devNode: 'feat-1.0'
+
+targetNode: 'dev'
+#targetNode: 'pre'
+#targetNode: 'master'
+
+cdnUrl: 'https://dp-adm.xiongmaoboshi.com/dev/'
