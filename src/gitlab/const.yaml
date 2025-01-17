@@ -6,3 +6,5 @@ targetNode: 'dev'
 #targetNode: 'master'
 
 cdnUrl: 'https://dp-adm.xiongmaoboshi.com/dev/'
+
+cdnOpenUrl: 'https://cms-dev.xiongmaoboshi.com/?title=CMS%20v1.0-live#/other/assets-management/link'
