@@ -44,8 +44,9 @@ def open_and_click():
 
         print("开始执行页面操作...")
 
+        page.ele('tag:textarea@@id=url').click()
         page.ele('tag:textarea@@id=url').input(config['cdnUrl'], True)
-
+        time.sleep(2)
         page.ele('tag:button@@class=ant-btn ant-btn-primary@@type=submit').click()
 
         # time.sleep(3)
