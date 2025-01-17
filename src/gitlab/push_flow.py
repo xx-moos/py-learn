@@ -69,24 +69,24 @@ def open_and_click():
 
         time.sleep(2)
 
-        # # 左边分支 名字
-        # page.ele('tag:button@@class=dropdown-menu-toggle js-compare-dropdown js-source-branch monospace@@type=button@@data-toggle=dropdown').click()
-        # page.ele('tag:div@@class=dropdown-menu dropdown-menu-selectable js-source-branch-dropdown git-revision-dropdown show').ele('tag:li@@text()='+config['devNode']).click()
+        # 左边分支 名字
+        page.ele('tag:button@@class=dropdown-menu-toggle js-compare-dropdown js-source-branch monospace@@type=button@@data-toggle=dropdown').click()
+        page.ele('tag:div@@class=dropdown-menu dropdown-menu-selectable js-source-branch-dropdown git-revision-dropdown show').ele('tag:li@@text()='+config['devNode']).click()
 
 
 
-        # # 右边分支 名字
-        # page.ele('tag:button@@class=dropdown-menu-toggle js-compare-dropdown js-target-branch monospace@@type=button@@data-toggle=dropdown').click()
-        # page.ele('tag:div@@class=dropdown-menu dropdown-menu-selectable js-target-branch-dropdown git-revision-dropdown show').ele('tag:li@@text()='+config['targetNode']).click()
+        # 右边分支 名字
+        page.ele('tag:button@@class=dropdown-menu-toggle js-compare-dropdown js-target-branch monospace@@type=button@@data-toggle=dropdown').click()
+        page.ele('tag:div@@class=dropdown-menu dropdown-menu-selectable js-target-branch-dropdown git-revision-dropdown show').ele('tag:li@@text()='+config['targetNode']).click()
 
 
-        # # 点击创建合并请求
-        # page.ele('tag:input@@type=submit@@name=commit@@class=btn btn-success mr-compare-btn').click()
-        # page.ele('tag:input@@type=submit@@name=commit@@class=btn btn-success qa-issuable-create-button').click()
+        # 点击创建合并请求
+        page.ele('tag:input@@type=submit@@name=commit@@class=btn btn-success mr-compare-btn').click()
+        page.ele('tag:input@@type=submit@@name=commit@@class=btn btn-success qa-issuable-create-button').click()
 
 
-        # # 点击合并
-        # page.ele('tag:button@@class=qa-merge-button btn btn-sm btn-success accept-merge-request').click()
+        # 点击合并
+        page.ele('tag:button@@class=qa-merge-button btn btn-sm btn-success accept-merge-request').click()
 
         # time.sleep(3)
 
