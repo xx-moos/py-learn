@@ -50,7 +50,7 @@ def open_and_click():
         shortcuts_merge_requests = page.ele('tag:a@@class=shortcuts-merge_requests qa-merge-requests-link')
 
         shortcuts_merge_requests.click()
-        time.sleep(3)
+        time.sleep(2)
 
 
         print("开始点击新建合并请求按钮...")
@@ -67,22 +67,28 @@ def open_and_click():
                 new_merge_request.click()
                 print("点击了替代的新建合并请求按钮")
 
-        time.sleep(2)
+        time.sleep(1)
 
         # 左边分支 名字
         page.ele('tag:button@@class=dropdown-menu-toggle js-compare-dropdown js-source-branch monospace@@type=button@@data-toggle=dropdown').click()
+        time.sleep(2)
         page.ele('tag:div@@class=dropdown-menu dropdown-menu-selectable js-source-branch-dropdown git-revision-dropdown show').ele('tag:li@@text()='+config['devNode']).click()
+        time.sleep(2)
 
 
 
         # 右边分支 名字
         page.ele('tag:button@@class=dropdown-menu-toggle js-compare-dropdown js-target-branch monospace@@type=button@@data-toggle=dropdown').click()
+        time.sleep(2)
         page.ele('tag:div@@class=dropdown-menu dropdown-menu-selectable js-target-branch-dropdown git-revision-dropdown show').ele('tag:li@@text()='+config['targetNode']).click()
+        time.sleep(2)
 
 
         # 点击创建合并请求
         page.ele('tag:input@@type=submit@@name=commit@@class=btn btn-success mr-compare-btn').click()
+        time.sleep(1)
         page.ele('tag:input@@type=submit@@name=commit@@class=btn btn-success qa-issuable-create-button').click()
+        time.sleep(3)
 
 
         # 点击合并
