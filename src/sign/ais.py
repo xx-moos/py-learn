@@ -76,7 +76,10 @@ def aicc_click():
         # 打开目标网址
         print("打开目标网址...")
         page.get(aiccUrl)
-        time.sleep(3)
+        time.sleep(2)
+
+        page.ele("tag:button@@aria-label=Close@@class=absolute top-2 right-2 p-2 hover:bg-gray-100 rounded-full transition-colors duration-200 z-[99999]").click()
+        time.sleep(1)
 
         ele = page.ele("tag:button@@class=signBtn1")
         page.stop_loading()
@@ -126,5 +129,3 @@ if __name__ == "__main__":
     yf_click()
     time.sleep(1)
     aicc_click()
-    time.sleep(1)
-    wochi_click()
