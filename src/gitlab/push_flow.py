@@ -74,7 +74,7 @@ def open_and_click():
         time.sleep(2)
         page.ele('tag:div@@class=dropdown-menu dropdown-menu-selectable js-source-branch-dropdown git-revision-dropdown show').ele('tag:li@@text()='+config['devNode']).click()
         time.sleep(2)
-
+        print("点击了 左边分支")
 
 
         # 右边分支 名字
@@ -82,6 +82,7 @@ def open_and_click():
         time.sleep(2)
         page.ele('tag:div@@class=dropdown-menu dropdown-menu-selectable js-target-branch-dropdown git-revision-dropdown show').ele('tag:li@@text()='+config['targetNode']).click()
         time.sleep(2)
+        print("点击了 右边分支")
 
 
         # 点击创建合并请求
@@ -89,10 +90,12 @@ def open_and_click():
         time.sleep(1)
         page.ele('tag:input@@type=submit@@name=commit@@class=btn btn-success qa-issuable-create-button').click()
         time.sleep(3)
+        print("点击了 合并请求")
 
 
         # 点击合并
         page.ele('tag:button@@class=qa-merge-button btn btn-sm btn-success accept-merge-request').click()
+        print("点击了 最后的合并按钮")
 
         # time.sleep(3)
 
