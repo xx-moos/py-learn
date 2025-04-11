@@ -6,35 +6,38 @@
 # dk管理系统
 # openurl: 'https://git.100tal.com/panda-h5/dk-ad-system'
 
-# OLA-CMS
-openurl: 'https://git.100tal.com/panda-h5/new-cms'
+# new-cms OLA-CMS
+# openurl: 'https://git.100tal.com/panda-h5/new-cms'
+
+# minisite-v2
+# openurl: "https://git.100tal.com/panda-h5/minisite-v2"
+
+# vipper
+# openurl: 'https://git.100tal.com/panda-h5/new-asset-system'
+
+# inspeak-cms
+# openurl: 'https://git.100tal.com/panda-h5/inspeak-cms'
+
+# 投放
+# openurl: 'https://git.100tal.com/panda-h5/delivery-system'
+
+# custom-site 自定义页面
+openurl: 'https://git.100tal.com/panda-h5/custom-site'
+
+# h5-activity 学习报告
+# openurl: 'https://git.100tal.com/panda-h5/h5-activity'
+
+# 分销
+# openurl: 'https://git.100tal.com/panda-h5/fenxiao-dist-web'
 
 
-devNode: 'feat-地址权限'
-
-
-targetNode: 'dev'
-# targetNode: 'pre'
-# targetNode: 'master'
 
 
 
 
+devNode: "sri-test"
 
 
-
-
-
-
-# ############ 刷新cdn #####################
-
-cdnOpenUrl: 'https://cms-dev.xiongmaoboshi.com/?title=CMS%20v1.0-live#/other/assets-management/link'
-
-# 定义为 list 或者 tuple
-cdnUrl:
-  - 'https://dp-adm.xiongmaoboshi.com/dev/'
-#   - 'https://business.xiongmaoboshi.com/tag-h5/dev/#/tag'
-#   - 'https://business.xiongmaoboshi.com/tag-h5/pre/'
-#   - 'https://business.xiongmaoboshi.com/tag-h5/pre/#/tag'
-#   - 'https://business.xiongmaoboshi.com/tag-h5/pro/'
-#   - 'https://business.xiongmaoboshi.com/tag-h5/pro/#/tag'
+# targetNode: 'dev'
+targetNode: 'pre'
+# targetNode: "master"

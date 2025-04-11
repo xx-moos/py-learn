@@ -38,7 +38,7 @@ def open_and_click():
         print("打开目标网址...")
         page.get(config['openurl'])
 
-        
+
         page.ele('tag:a@@class=shortcuts-merge_requests qa-merge-requests-link')  # 查找text包含“中国日报”的元素
         page.stop_loading()
 
@@ -99,7 +99,7 @@ def open_and_click():
 
         # time.sleep(3)
 
-        
+
     except Exception as e:
         print(f"发生错误: {e}")
         return None

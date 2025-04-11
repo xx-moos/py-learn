@@ -1,0 +1,69 @@
+# ############ 刷新cdn #####################
+cdnOpenUrl: "https://cms-dev.xiongmaoboshi.com/?title=CMS%20v1.0-live#/other/assets-management/link"
+
+# 定义为 list 或者 tuple
+cdnUrl:
+  # - 'https://business.xiongmaoboshi.com/privacy/dev/abctimelibrary/ios/index.html'
+  - 'https://cms-dev.xiongmaoboshi.com/vite-customsite/'
+
+  # - 'https://dist-admin.xiongmaoboshi.com/dev/#/'
+
+  # - 'https://business.xiongmaoboshi.com/dpsite/dev/ca-studyReport/index'
+  # - 'https://business.xiongmaoboshi.com/dpsite/ca-studyReport/index'
+
+  # - 'https://vipper-fe.xiongmaoboshi.com/pro/#/'
+  # - 'https://vipper-fe.xiongmaoboshi.com/dev/#/'
+
+  # - 'https://dyv.xiongmaoboshi.com/assets/img/success-bg.png'
+  # - 'https://dyv.xiongmaoboshi.com/dev/dy/index.html#/changeSuccess'
+  # - 'https://dyv.xiongmaoboshi.com/pre/dy/index.html#/changeSuccess'
+  # - 'https://dyv.xiongmaoboshi.com/pro/dy/index.html#/changeSuccess'
+
+  # - 'https://business.xiongmaoboshi.com/dpshop/res/img/%E8%AF%86%E5%AD%97-1680065776382-710.png'
+  # - 'https://business.xiongmaoboshi.com/dpsite/universal-guide/success/ca?previewWithEntity=false'
+
+  # - 'https://business.xiongmaoboshi.com/dpshop/res/img/gxyp2xiq1b-1688441932576-814.png'
+  # - 'https://business.xiongmaoboshi.com/dpsite/universal-guide/success/abc?previewWithEntity=false'
+
+
+  # - 'https://dyv.xiongmaoboshi.com/assets/img/base-bg.png'
+
+  # - 'https://vipper-fe.xiongmaoboshi.com/dev/'
+  # - 'https://vipper-fe.xiongmaoboshi.com/dev'
+
+  # - "https://minisite-v2.xiongmaoboshi.com/minisite/account/course"
+  # - "https://minisite-v2.xiongmaoboshi.com/minisite/account/course/"
+  # - "https://minisite-v2.xiongmaoboshi.com/minisite/account/course?buttonTap=pageBackInToc"
+  # - "https://minisite-v2.xiongmaoboshi.com/minisite/"
+  # - "https://minisite-v2.xiongmaoboshi.com/minisite"
+  # - "https://minisite-v2.xiongmaoboshi.com/minisite/course/"
+  # - "https://minisite-v2.xiongmaoboshi.com/minisite/activity/"
+  # - "https://minisite-v2.xiongmaoboshi.com/minisite/rebates/"
+  # - "https://minisite-v2.xiongmaoboshi.com/minisite/unlock/"
+  # - "https://minisite-v2.xiongmaoboshi.com/minisite/account/study/chapter"
+
+  # - "https://business.xiongmaoboshi.com/minisite/account/course"
+  # - "https://business.xiongmaoboshi.com/minisite/account/course/"
+  # - "https://business.xiongmaoboshi.com/minisite/account/course?buttonTap=pageBackInToc"
+  # - "https://business.xiongmaoboshi.com/minisite/"
+  # - "https://business.xiongmaoboshi.com/minisite"
+  # - "https://business.xiongmaoboshi.com/minisite/course/"
+  # - "https://business.xiongmaoboshi.com/minisite/activity/"
+  # - "https://business.xiongmaoboshi.com/minisite/rebates/"
+  # - "https://business.xiongmaoboshi.com/minisite/unlock/"
+  # - "https://business.xiongmaoboshi.com/minisite/account/study/chapter"
+
+  # - "https://business.xiongmaoboshi.com/dp-kanshijie/account/course"
+  # - "https://business.xiongmaoboshi.com/dp-kanshijie/account/course/"
+  # - "https://business.xiongmaoboshi.com/dp-kanshijie/account/course?buttonTap=pageBackInToc"
+  # - "https://business.xiongmaoboshi.com/dp-kanshijie/"
+  # - "https://business.xiongmaoboshi.com/dp-kanshijie"
+  # - "https://business.xiongmaoboshi.com/dp-kanshijie/course/"
+  # - "https://business.xiongmaoboshi.com/dp-kanshijie/activity/"
+  # - "https://business.xiongmaoboshi.com/dp-kanshijie/rebates/"
+  # - "https://business.xiongmaoboshi.com/dp-kanshijie/unlock/"
+  # - "https://business.xiongmaoboshi.com/dp-kanshijie/account/study/chapter"
+
+  # - 'https://business.xiongmaoboshi.com/tag-h5/pre/#/tag'
+  # - 'https://business.xiongmaoboshi.com/tag-h5/pro/'
+  # - 'https://business.xiongmaoboshi.com/tag-h5/pro/#/tag'
