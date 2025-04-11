@@ -4,7 +4,7 @@ cdnOpenUrl: "https://cms-dev.xiongmaoboshi.com/?title=CMS%20v1.0-live#/other/ass
 # 定义为 list 或者 tuple
 cdnUrl:
   # - 'https://business.xiongmaoboshi.com/privacy/dev/abctimelibrary/ios/index.html'
-  - 'https://cms-dev.xiongmaoboshi.com/vite-customsite/'
+  - 'https://business.xiongmaoboshi.com/privacy/dev/abctimelibrary/ios/index.html'
 
   # - 'https://dist-admin.xiongmaoboshi.com/dev/#/'
 

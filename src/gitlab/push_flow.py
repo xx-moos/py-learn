@@ -19,7 +19,7 @@ from src.utils.open_browser_old_user_data import open_browser
 def get_const():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     const_path = os.path.join(current_dir, 'const.yaml')
-    with open(const_path, 'r') as file:
+    with open(const_path, 'r', encoding='utf-8') as file:
         return yaml.safe_load(file)
 
 
@@ -39,7 +39,7 @@ def open_and_click():
         page.get(config['openurl'])
 
 
-        page.ele('tag:a@@class=shortcuts-merge_requests qa-merge-requests-link')  # 查找text包含“中国日报”的元素
+        page.ele('tag:a@@class=shortcuts-merge_requests qa-merge-requests-link')  # 查找text包含"中国日报"的元素
         page.stop_loading()
 
 

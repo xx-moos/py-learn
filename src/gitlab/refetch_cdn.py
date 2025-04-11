@@ -20,7 +20,7 @@ from src.utils.open_browser_old_user_data import open_browser
 def get_const():
     current_dir = os.path.dirname(os.path.abspath(__file__))
     const_path = os.path.join(current_dir, "cdn.yaml")
-    with open(const_path, "r") as file:
+    with open(const_path, "r", encoding='utf-8') as file:
         return yaml.safe_load(file)
 
 

@@ -38,6 +38,6 @@ openurl: 'https://git.100tal.com/panda-h5/custom-site'
 devNode: "sri-test"
 
 
-# targetNode: 'dev'
-targetNode: 'pre'
+targetNode: 'dev'
+# targetNode: 'pre'
 # targetNode: "master"
