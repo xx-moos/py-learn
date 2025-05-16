@@ -45,6 +45,7 @@ def open_and_click():
         print("开始执行页面操作...")
 
         page.ele("tag:textarea@@id=url").focus()
+        page.ele("tag:textarea@@id=url").clear()
         for index, i in enumerate(config["cdnUrl"]):
             page.ele("tag:textarea@@id=url").input(i)
             if index != len(config["cdnUrl"]) - 1:
