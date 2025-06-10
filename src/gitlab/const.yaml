@@ -1,7 +1,8 @@
-# ############ 发布版本 #####################
-
 # 客服系统
-# openurl: 'https://git.100tal.com/panda-h5/customer-service-system'
+openurl: 'https://git.100tal.com/panda-h5/customer-service-system'
+
+# 客服系统用服 c 端h5
+# openurl: 'https://git.100tal.com/panda-h5/customer-service-user-h5'
 
 # dk管理系统
 # openurl: 'https://git.100tal.com/panda-h5/dk-ad-system'
@@ -22,7 +23,7 @@
 # openurl: 'https://git.100tal.com/panda-h5/delivery-system'
 
 # custom-site 自定义页面
-openurl: 'https://git.100tal.com/panda-h5/custom-site'
+# openurl: 'https://git.100tal.com/panda-h5/custom-site'
 
 # h5-activity 学习报告
 # openurl: 'https://git.100tal.com/panda-h5/h5-activity'
@@ -32,12 +33,14 @@ openurl: 'https://git.100tal.com/panda-h5/custom-site'
 
 
 
+# devNode: "feat-1.0"
+# devNode: "fix-batchGiftsData"
+# devNode: "feat-2025logo"
+# devNode: "fix-time"
+# devNode: "feat-2"
+devNode: "feat-dk改名"
 
 
-
-devNode: "sri-test"
-
-
-targetNode: 'dev'
+# targetNode: 'dev'
 # targetNode: 'pre'
-# targetNode: "master"
+targetNode: "master"

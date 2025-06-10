@@ -3,13 +3,55 @@ cdnOpenUrl: "https://cms-dev.xiongmaoboshi.com/?title=CMS%20v1.0-live#/other/ass
 
 # 定义为 list 或者 tuple
 cdnUrl:
-  # - 'https://business.xiongmaoboshi.com/privacy/dev/abctimelibrary/ios/index.html'
-  - 'https://business.xiongmaoboshi.com/privacy/dev/abctimelibrary/ios/index.html'
 
+  - 'https://business.xiongmaoboshi.com/dpsite/redeemSuccessPage/defaultPath'
+
+
+  
+  # - 'https://dp-adm.xiongmaoboshi.com/dev/#/'
+  
+  # - 'https://dist-fe.xiongmaoboshi.com/dev/#/'
   # - 'https://dist-admin.xiongmaoboshi.com/dev/#/'
+
+  # - 'https://dist-fe.xiongmaoboshi.com/pre/#/'
+  # - 'https://dist-admin.xiongmaoboshi.com/pre/#/'
+
+  # - 'https://dist-fe.xiongmaoboshi.com/pro/#/'
+  # - 'https://dist-admin.xiongmaoboshi.com/pro/#/'
+
+
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/assets/icons/qy-abc-hb-hui.png'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/assets/icons/qy-abc-hb.png'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/assets/icons/qy-abc-pd-hui.png'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/assets/icons/qy-abc-pd.png'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/assets/icons/qy-abc-bd-hui.png'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/assets/icons/qy-abc-bd.png'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/assets/icons/qy-abc-ky-hui.png'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/assets/icons/qy-abc-ky.png'
+
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/dev/#/'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/dev/#/rights'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/pre/#/'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/pre/#/rights'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/pro/#/'
+  # - 'https://business.xiongmaoboshi.com/cs-user-h5/pro/#/rights'
+
+
+  # - 'https://business.xiongmaoboshi.com/dk-h5/pro/#/parent'
+  # - 'https://business.xiongmaoboshi.com/dk-h5/pro/#/learningMachine'
+
+  # - 'https://business.xiongmaoboshi.com/dk-h5/dev/#/'
+  # - 'https://business.xiongmaoboshi.com/dk-h5/dev/#/parent'
+  # - 'https://business.xiongmaoboshi.com/dk-h5/dev/#/learningMachine'
+
+  # - 'https://business.xiongmaoboshi.com/dk-h5/pre/#/'
+  # - 'https://business.xiongmaoboshi.com/dk-h5/pre/#/parent'
+  # - 'https://business.xiongmaoboshi.com/dk-h5/pre/#/learningMachine'
+
 
   # - 'https://business.xiongmaoboshi.com/dpsite/dev/ca-studyReport/index'
   # - 'https://business.xiongmaoboshi.com/dpsite/ca-studyReport/index'
+
 
   # - 'https://vipper-fe.xiongmaoboshi.com/pro/#/'
   # - 'https://vipper-fe.xiongmaoboshi.com/dev/#/'
