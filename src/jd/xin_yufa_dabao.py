@@ -17,11 +17,11 @@ import time
 PROJECT_DIR = r"E:\code\fe\JD\kf-manage-lite"
 STATIC_DEPLOY_DIR = r"E:\code\fe\JD\staticDeploy"
 BUILD_OUTPUT_DIR = os.path.join(PROJECT_DIR, "kf-manage-lite")
-DEPLOY_TARGET_DIR = os.path.join(STATIC_DEPLOY_DIR, "kf-manage-lite")
+DEPLOY_TARGET_DIR = os.path.join(STATIC_DEPLOY_DIR, "kf-manage-lite-1113")
 
 
 class AutoBuilder:
-    """自动打包部署类 - 老王出品,必属精品"""
+    """新的预发分支打包，也就是新的文件夹，不占用原本预发分支"""
 
     def __init__(self):
         """初始化,继承所有系统环境变量"""
@@ -258,13 +258,19 @@ class AutoBuilder:
         """复制打包产物到部署目录"""
         self.log("=" * 60)
         self.log("复制打包产物到部署目录")
-
+        
         # 检查源目录
         if not os.path.exists(BUILD_OUTPUT_DIR):
             self.log(f"✗ 打包输出目录不存在:{BUILD_OUTPUT_DIR}", "ERROR")
             self.log("  可能是打包失败了,检查一下上面的错误信息", "ERROR")
             return False
-
+        
+        # 2. 询问用户要复制的文件夹
+        print("\n" + "-" * 60)
+        copy_folder = input("请输入要复制的文件夹: ").strip()
+        
+        DEPLOY_TARGET_DIR = os.path.join(STATIC_DEPLOY_DIR, copy_folder)
+        
         try:
             # 如果目标目录存在,先删除
             if os.path.exists(DEPLOY_TARGET_DIR):
@@ -302,10 +308,6 @@ class AutoBuilder:
             self.log("git 也没有?你这环境太垃圾了!", "ERROR")
             return False
 
-        # 2. 处理分支合并(在打包之前)
-        if not self.handle_branch_merge():
-            self.log("分支合并失败,程序退出!", "ERROR")
-            return False
 
         # 3. 执行打包
         if not self.build_project():
@@ -326,12 +328,6 @@ class AutoBuilder:
             self.log("复制文件失败,艹,检查一下权限问题!", "ERROR")
             return False
 
-        # 6. 切回原始分支
-        if self.original_branch:
-            self.log("=" * 60)
-            self.log(f"切回原始分支:{self.original_branch}")
-            if not self.checkout_branch(self.original_branch, PROJECT_DIR):
-                self.log(f"切回 {self.original_branch} 分支失败,需要手动切换!", "WARNING")
 
         # 完成
         print("\n" + "=" * 60)

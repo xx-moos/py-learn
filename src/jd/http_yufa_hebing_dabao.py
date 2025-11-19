@@ -17,11 +17,13 @@ import time
 PROJECT_DIR = r"E:\code\fe\JD\kf-manage-lite"
 STATIC_DEPLOY_DIR = r"E:\code\fe\JD\staticDeploy"
 BUILD_OUTPUT_DIR = os.path.join(PROJECT_DIR, "kf-manage-lite")
-DEPLOY_TARGET_DIR = os.path.join(STATIC_DEPLOY_DIR, "kf-manage-lite")
+DEPLOY_TARGET_DIR = os.path.join(STATIC_DEPLOY_DIR, "kf-manage-lite-1113")
 
+# 待发布的分支
+DEPLOY_TARGET_BRANCH = r"yufa-http"
 
 class AutoBuilder:
-    """这个是直接打包预发，适合已经合并了其他分支之后"""
+    """其他分支要合并到 http 预发分支的打包，完成之后回到其他分支"""
 
     def __init__(self):
         """初始化,继承所有系统环境变量"""
@@ -181,8 +183,27 @@ class AutoBuilder:
             self.log("无法获取当前分支,艹!", "ERROR")
             return False
 
+        # 2. 询问用户要合并的分支
+        print("\n" + "-" * 60)
+        merge_branch = input("请输入要合并的分支名称: ").strip()
+        if not merge_branch:
+            self.log("没有输入分支名称,跳过合并操作", "WARNING")
+            return True
+
+        self.log(f"用户输入的待合并分支:{merge_branch}")
+
+        # 3. 切换到 待发布的 分支
+        if not self.checkout_branch(merge_branch, PROJECT_DIR):
+            self.log("切换到 待发布的 分支失败,艹!", "ERROR")
+            return False
+
+        # 4. 拉取 待发布的 分支最新代码
+        if not self.pull_branch(PROJECT_DIR):
+            self.log("拉取 待发布的 分支最新代码失败,艹!", "ERROR")
+            return False
+
         # 3. 切换到 yufa 分支
-        if not self.checkout_branch("yufa", PROJECT_DIR):
+        if not self.checkout_branch(DEPLOY_TARGET_BRANCH, PROJECT_DIR):
             self.log("切换到 yufa 分支失败,艹!", "ERROR")
             return False
 
@@ -191,7 +212,14 @@ class AutoBuilder:
             self.log("拉取 yufa 分支最新代码失败,艹!", "ERROR")
             return False
 
-        self.log(f"✓ 成功拉取 yufa 分支最新代码")
+        # 5. 合并用户指定的分支
+        if not self.merge_branch(merge_branch, PROJECT_DIR):
+            self.log(f"合并 {merge_branch} 分支失败,程序退出!", "ERROR")
+            # 尝试切回原分支
+            # self.checkout_branch(self.original_branch, PROJECT_DIR)
+            return False
+
+        self.log(f"✓ 成功合并 {merge_branch} 到 yufa 分支")
         return True
 
     def build_project(self):
@@ -276,9 +304,9 @@ class AutoBuilder:
             self.log("git 也没有?你这环境太垃圾了!", "ERROR")
             return False
 
-        # 2. 处理分支
+        # 2. 处理分支合并(在打包之前)
         if not self.handle_branch_merge():
-            self.log("切换到 yufa 分支失败,程序退出!", "ERROR")
+            self.log("分支合并失败,程序退出!", "ERROR")
             return False
 
         # 3. 执行打包
