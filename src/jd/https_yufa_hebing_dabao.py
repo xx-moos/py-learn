@@ -232,7 +232,8 @@ class AutoBuilder:
 
         # 切换到项目目录并执行打包
         return self.run_command(
-            "bun build:pre",
+            # "bun build:pre",
+            "bun build:pre-https",
             cwd=PROJECT_DIR,
             description="执行 bun build:pre 打包命令"
         )
