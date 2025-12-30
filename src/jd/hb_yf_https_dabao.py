@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-京东 kf-manage-lite 项目自动打包部署脚本
-作者:老王
-功能:自动执行打包并部署到 staticDeploy
+先把开发分支合并到 yufa ，再打包，最后在回到开发分支，这个操作的是  yufa  也就是 https
 """
 
 import os
@@ -21,7 +19,7 @@ DEPLOY_TARGET_DIR = os.path.join(STATIC_DEPLOY_DIR, "kf-manage-lite")
 
 
 class AutoBuilder:
-    """这个是直接打包预发，适合已经合并了其他分支之后"""
+    """其他分支要合并到预发分支的打包，完成之后回到其他分支"""
 
     def __init__(self):
         """初始化,继承所有系统环境变量"""
@@ -181,6 +179,25 @@ class AutoBuilder:
             self.log("无法获取当前分支,艹!", "ERROR")
             return False
 
+        # 2. 询问用户要合并的分支
+        print("\n" + "-" * 60)
+        merge_branch = input("请输入要合并的分支名称: ").strip()
+        if not merge_branch:
+            self.log("没有输入分支名称,跳过合并操作", "WARNING")
+            return True
+
+        self.log(f"用户输入的待合并分支:{merge_branch}")
+
+        # 3. 切换到 待发布的 分支
+        if not self.checkout_branch(merge_branch, PROJECT_DIR):
+            self.log("切换到 待发布的 分支失败,艹!", "ERROR")
+            return False
+
+        # 4. 拉取 待发布的 分支最新代码
+        if not self.pull_branch(PROJECT_DIR):
+            self.log("拉取 待发布的 分支最新代码失败,艹!", "ERROR")
+            return False
+
         # 3. 切换到 yufa 分支
         if not self.checkout_branch("yufa", PROJECT_DIR):
             self.log("切换到 yufa 分支失败,艹!", "ERROR")
@@ -191,7 +208,14 @@ class AutoBuilder:
             self.log("拉取 yufa 分支最新代码失败,艹!", "ERROR")
             return False
 
-        self.log(f"✓ 成功拉取 yufa 分支最新代码")
+        # 5. 合并用户指定的分支
+        if not self.merge_branch(merge_branch, PROJECT_DIR):
+            self.log(f"合并 {merge_branch} 分支失败,程序退出!", "ERROR")
+            # 尝试切回原分支
+            # self.checkout_branch(self.original_branch, PROJECT_DIR)
+            return False
+
+        self.log(f"✓ 成功合并 {merge_branch} 到 yufa 分支")
         return True
 
     def build_project(self):
@@ -206,9 +230,9 @@ class AutoBuilder:
 
         # 切换到项目目录并执行打包
         return self.run_command(
-            "bun build:pre",
+            "bun build:pre-https",
             cwd=PROJECT_DIR,
-            description="执行 bun build:pre 打包命令"
+            description="执行 bun build:pre-https 打包命令"
         )
 
     def git_pull_static_deploy(self):
@@ -262,8 +286,7 @@ class AutoBuilder:
     def run(self):
         """执行完整的打包部署流程"""
         print("\n" + "=" * 60)
-        print("    京东 kf-manage-lite 自动打包部署脚本")
-        print("    老王出品 - 简洁高效,拒绝花里胡哨")
+        print("    其他分支先合并到 yufa 预发分支，再打包，最后回到开发分支，操作的 yufa  得到 https ")
         print("=" * 60 + "\n")
 
         # 1. 检查必要的命令
@@ -276,9 +299,9 @@ class AutoBuilder:
             self.log("git 也没有?你这环境太垃圾了!", "ERROR")
             return False
 
-        # 2. 处理分支
+        # 2. 处理分支合并(在打包之前)
         if not self.handle_branch_merge():
-            self.log("切换到 yufa 分支失败,程序退出!", "ERROR")
+            self.log("分支合并失败,程序退出!", "ERROR")
             return False
 
         # 3. 执行打包
