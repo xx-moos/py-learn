@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-京东 kf-manage-lite 项目自动打包部署脚本
-作者:老王
-功能:自动执行打包并部署到 staticDeploy
+先把开发分支合并到 yufa-http ，再打包，最后在回到开发分支，这个操作的是  yufa-http
 """
 
 import os
@@ -17,11 +15,13 @@ import time
 PROJECT_DIR = r"E:\code\fe\JD\kf-manage-lite"
 STATIC_DEPLOY_DIR = r"E:\code\fe\JD\staticDeploy"
 BUILD_OUTPUT_DIR = os.path.join(PROJECT_DIR, "kf-manage-lite")
-DEPLOY_TARGET_DIR = os.path.join(STATIC_DEPLOY_DIR, "kf-manage-lite-1113")
+DEPLOY_TARGET_DIR = os.path.join(STATIC_DEPLOY_DIR, "kf-manage-lite-http")
 
+# 待发布的分支
+DEPLOY_TARGET_BRANCH = r"yufa-http"
 
 class AutoBuilder:
-    """新的预发分支打包，也就是新的文件夹，不占用原本预发分支"""
+    """其他分支要合并到 yufa-http 预发分支的打包，完成之后回到其他分支"""
 
     def __init__(self):
         """初始化,继承所有系统环境变量"""
@@ -200,12 +200,12 @@ class AutoBuilder:
             self.log("拉取 待发布的 分支最新代码失败,艹!", "ERROR")
             return False
 
-        # 3. 切换到 yufa 分支
-        if not self.checkout_branch("yufa", PROJECT_DIR):
-            self.log("切换到 yufa 分支失败,艹!", "ERROR")
+        # 3. 切换到 yufa-http 分支
+        if not self.checkout_branch(DEPLOY_TARGET_BRANCH, PROJECT_DIR):
+            self.log("切换到 yufa-http 分支失败,艹!", "ERROR")
             return False
 
-        # 4. 拉取 yufa 分支最新代码
+        # 4. 拉取 yufa-http 分支最新代码
         if not self.pull_branch(PROJECT_DIR):
             self.log("拉取 yufa 分支最新代码失败,艹!", "ERROR")
             return False
@@ -258,19 +258,13 @@ class AutoBuilder:
         """复制打包产物到部署目录"""
         self.log("=" * 60)
         self.log("复制打包产物到部署目录")
-        
+
         # 检查源目录
         if not os.path.exists(BUILD_OUTPUT_DIR):
             self.log(f"✗ 打包输出目录不存在:{BUILD_OUTPUT_DIR}", "ERROR")
             self.log("  可能是打包失败了,检查一下上面的错误信息", "ERROR")
             return False
-        
-        # 2. 询问用户要复制的文件夹
-        print("\n" + "-" * 60)
-        copy_folder = input("请输入要复制的文件夹: ").strip()
-        
-        DEPLOY_TARGET_DIR = os.path.join(STATIC_DEPLOY_DIR, copy_folder)
-        
+
         try:
             # 如果目标目录存在,先删除
             if os.path.exists(DEPLOY_TARGET_DIR):
@@ -294,8 +288,7 @@ class AutoBuilder:
     def run(self):
         """执行完整的打包部署流程"""
         print("\n" + "=" * 60)
-        print("    京东 kf-manage-lite 自动打包部署脚本")
-        print("    老王出品 - 简洁高效,拒绝花里胡哨")
+        print("    其他分支先合并到 yufa-http 预发分支，再打包，最后回到开发分支，操作的 yufa-http")
         print("=" * 60 + "\n")
 
         # 1. 检查必要的命令
@@ -308,6 +301,10 @@ class AutoBuilder:
             self.log("git 也没有?你这环境太垃圾了!", "ERROR")
             return False
 
+        # 2. 处理分支合并(在打包之前)
+        if not self.handle_branch_merge():
+            self.log("分支合并失败,程序退出!", "ERROR")
+            return False
 
         # 3. 执行打包
         if not self.build_project():
@@ -328,6 +325,12 @@ class AutoBuilder:
             self.log("复制文件失败,艹,检查一下权限问题!", "ERROR")
             return False
 
+        # 6. 切回原始分支
+        if self.original_branch:
+            self.log("=" * 60)
+            self.log(f"切回原始分支:{self.original_branch}")
+            if not self.checkout_branch(self.original_branch, PROJECT_DIR):
+                self.log(f"切回 {self.original_branch} 分支失败,需要手动切换!", "WARNING")
 
         # 完成
         print("\n" + "=" * 60)
