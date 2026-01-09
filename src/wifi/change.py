@@ -88,7 +88,7 @@ def select_menu(options, current_wifi=None):
 
 
 def main():
-    wifi_list = ['xw-5G', 'lex']
+    wifi_list = ['tool', 'lex']
     current_wifi = get_current_wifi()
     
     selected_wifi = select_menu(wifi_list, current_wifi)
