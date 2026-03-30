@@ -310,6 +310,11 @@ class AutoBuilder:
         if not self.build_project():
             self.log("打包失败了,艹,检查一下代码有没有问题!", "ERROR")
             return False
+        
+        # 切换到 static 的 yufa 分支
+        if not self.checkout_branch('yufa', STATIC_DEPLOY_DIR):
+            self.log("切换到 static 的 yufa 分支失败,艹!", "ERROR")
+            return False
 
         # 4. 更新 staticDeploy
         if not self.git_pull_static_deploy():

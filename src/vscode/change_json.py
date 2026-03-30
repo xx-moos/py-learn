@@ -5,7 +5,7 @@ def main():
     # 定义两个VSCode版本的路径
     vscode_paths = {
         "1": r"D:\editor\Microsoft VS Code\resources\app\product.json",
-        "2": r"D:\editor\Microsoft VS Code Insiders\resources\app\product.json"
+        "2": r"D:\editor\Microsoft VS Code Insiders\ea084045c1\resources\app\product.json"
     }
     
     # 提示用户选择
