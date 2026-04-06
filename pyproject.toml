@@ -1,0 +1,6 @@
+[dependency-groups]
+dev = [
+    "inquirer>=3.4.1",
+    "pyreadline3>=3.5.4",
+    "pyyaml>=6.0.3",
+]
