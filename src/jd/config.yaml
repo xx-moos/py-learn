@@ -1,4 +1,16 @@
 projects:
+  - name: "kf-manage-lite  测试http打包"
+    project_dir: "E:/code/fe/JD/kf-manage-lite"
+    build_output_dir: "kf-manage-lite" # 相对于 project_dir 或绝对路径
+    deploy_target_branch: "yufa-http" # 业务仓库预发分支
+    build_command: "bun build:test" # 打包命令
+
+    static_deploy_dir: "E:/code/fe/JD/staticDeploy"
+    deploy_target_dir: "kf-manage-lite-http" # 相对于 static_deploy_dir 或绝对路径
+    static_repo_branch: "test-http" # staticDeploy 仓库对应分支
+
+  ############### 这是分割线 ################
+
   - name: "kf-manage-lite  预发http打包"
     project_dir: "E:/code/fe/JD/kf-manage-lite"
     build_command: "bun build:pre" # 打包命令
@@ -9,32 +21,63 @@ projects:
     deploy_target_dir: "kf-manage-lite-http" # 相对于 static_deploy_dir 或绝对路径
     static_repo_branch: "yufa" # staticDeploy 仓库对应分支
 
+  ############### 这是分割线 ################
+
   - name: "kf-manage-lite  预发https打包"
     project_dir: "E:/code/fe/JD/kf-manage-lite"
     build_output_dir: "kf-manage-lite" # 相对于 project_dir 或绝对路径
-    deploy_target_branch: "yufa-http" # 业务仓库预发分支
+    deploy_target_branch: "yufa" # 业务仓库预发分支
     build_command: "bun build:pre-https" # 打包命令
 
     static_deploy_dir: "E:/code/fe/JD/staticDeploy"
-    deploy_target_dir: "kf-manage-lite-http" # 相对于 static_deploy_dir 或绝对路径
+    deploy_target_dir: "kf-manage-lite" # 相对于 static_deploy_dir 或绝对路径
+    static_repo_branch: "yufa" # staticDeploy 仓库对应分支
+
+  ############### 这是分割线 ################
+
+  - name: "filterCustomer  预发http打包"
+    project_dir: "E:/code/fe/JD/filterCustomer"
+    build_output_dir: "filterCustomer" # 相对于 project_dir 或绝对路径
+    deploy_target_branch: "yufa-http" # 业务仓库预发分支,这个仓库没有,暂时跳过合并分支
+    build_command: "bun run build" # 打包命令
+
+    static_deploy_dir: "E:/code/fe/JD/staticDeploy"
+    deploy_target_dir: "filterCustomer" # 相对于 static_deploy_dir 或绝对路径
     static_repo_branch: "yufa" # staticDeploy 仓库对应分支
 
 
-  - name: "kf-manage-lite  测试http打包"
-    project_dir: "E:/code/fe/JD/kf-manage-lite"
-    build_output_dir: "kf-manage-lite" # 相对于 project_dir 或绝对路径
-    deploy_target_branch: "yufa-http" # 业务仓库预发分支
-    build_command: "bun build:test" # 打包命令
-    
-    deploy_target_dir: "kf-manage-lite-http" # 相对于 static_deploy_dir 或绝对路径
-    static_deploy_dir: "E:/code/fe/JD/staticDeploy"
-    static_repo_branch: "test-http" # staticDeploy 仓库对应分支
+  # ############### 这是分割线 ################
 
-  - name: "other-project-demo"
-    project_dir: "E:/code/fe/JD/other-project"
-    static_deploy_dir: "E:/code/fe/JD/staticDeploy"
-    build_output_dir: "dist"
-    deploy_target_dir: "other-project-http"
-    deploy_target_branch: "pre"
-    static_repo_branch: "master"
-    build_command: "npm run build"
+  # - name: "kf-merchant-workbench  测试http打包"
+  #   project_dir: "E:/code/fe/JD/kf-merchant-workbench"
+  #   build_output_dir: "kf-merchant-workbench-test" # 相对于 project_dir 或绝对路径
+  #   deploy_target_branch: "yufa-http" # 业务仓库预发分支,这个仓库没有,暂时跳过合并分支
+  #   build_command: "bun build:test" # 打包命令
+
+  #   static_deploy_dir: "E:/code/fe/JD/staticDeploy"
+  #   deploy_target_dir: "kf-merchant-workbench-test" # 相对于 static_deploy_dir 或绝对路径
+  #   static_repo_branch: "test-http" # staticDeploy 仓库对应分支
+
+  # ############### 这是分割线 ################
+
+  # - name: "kf-merchant-workbench  预发http打包"
+  #   project_dir: "E:/code/fe/JD/kf-merchant-workbench"
+  #   build_output_dir: "kf-merchant-workbench" # 相对于 project_dir 或绝对路径
+  #   deploy_target_branch: "yufa-http" # 业务仓库预发分支,这个仓库没有,暂时跳过合并分支
+  #   build_command: "bun build:pre" # 打包命令
+
+  #   static_deploy_dir: "E:/code/fe/JD/staticDeploy"
+  #   deploy_target_dir: "kf-merchant-workbench" # 相对于 static_deploy_dir 或绝对路径
+  #   static_repo_branch: "yufa" # staticDeploy 仓库对应分支
+
+  # ############### 这是分割线 ################
+
+  # - name: "kf-merchant-workbench  预发https打包"
+  #   project_dir: "E:/code/fe/JD/kf-merchant-workbench"
+  #   build_output_dir: "kf-merchant-workbench-https" # 相对于 project_dir 或绝对路径
+  #   deploy_target_branch: "yufa-http" # 业务仓库预发分支,这个仓库没有,暂时跳过合并分支
+  #   build_command: "bun build:pre-https" # 打包命令
+
+  #   static_deploy_dir: "E:/code/fe/JD/staticDeploy"
+  #   deploy_target_dir: "kf-merchant-workbench-https" # 相对于 static_deploy_dir 或绝对路径
+  #   static_repo_branch: "yufa" # staticDeploy 仓库对应分支
